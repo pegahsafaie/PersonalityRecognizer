@@ -1,0 +1,274 @@
+<html> <header> <title>Personality Recognizer</title> </header>
+
+<body>
+
+<table border=0 width=650>
+<tr><td valign=top>
+
+
+<h2>Personality Recognizer v1.03</h2>
+
+
+
+<p>
+[ <a href=#req>Requirements</a> | <a href=#download>Download</a> | <a href=#install>Installation and usage</a> | <a href=#dir>Directory structure</a> | <a href=doc/index.html>Javadoc API</a> |
+<a href=demo.html>Online demo</a> | <a href=http://www.mairesse.co.uk>Contact author</a> ] 
+<hr>
+
+<br><p>
+<b>New <a href=#download>version 1.03</a> available (24/06/2008) - <a href=#updates>what's new</a></b>
+<br><br>
+<p>
+<a name=features></a>
+<p>
+
+The Personality Recognizer is a Java command-line application that reads a set of text files and computes estimates of personality scores along the Big Five dimensions (Norman, 1963):
+
+<ul>
+<li>Extraversion 
+<li>Emotional stability 
+<li>Agreeableness
+<li>Conscientiousness
+<li>Openness to experience
+</ul>
+
+The program is based on models analyzed in (<a href=#ref>Mairesse et al., 2007</a>) that were shown to predict personality scores significantly better than a constant baseline. The program uses a command line interface, and outputs scores on a scale from 1 to 7, e.g. where 7 is strongly extravert. An <a href=demo.html>online web demo</a> is available.
+
+<br>
+<br><p>
+<a name=req></a><b><font face=Arial>Requirements</font></b>
+<p>
+First check that the required components are correctly installed:
+
+<ul>
+<li>Java Runtime Environment (JRE) 1.5 or later
+<li><a href=http://www.mairesse.co.uk/personality/weka-3-4-3.tar.gz>Weka 3.4.3</a>
+<li><a href=http://ota.ahds.ac.uk/texts/1054.html>MRC Psycholinguistic Database</a>
+<li><a href=http://www.liwc.net/>Linguistic Inquiry and Word Count 2001</a> dictionary file (email author for details)
+</ul>
+
+<br><p>
+<a name=updates></a><b><font face=Arial>History</font></b>
+<p>
+Major updates in version 1.03 (24/06/2008):
+<ul>
+<li> Added the -a option to write the existing feature values to a Weka <code>arff</code>
+  file. This facilitates training models on new data, as well as the addition
+  of new features. See <a href=#addFeat>details</a>.
+</ul>
+Major updates in version 1.02 (06/06/2007):
+<ul>
+<li> Added a <b>corpus analysis mode</b> (option -d) in which the recognizer estimates the personality of 
+individual text files in a collection of texts by standardizing the feature values over the corpus 
+and running standardized models that can be applied across domains.
+<li> Removed 18 LIWC features that didn't generalize well across domain, e.g. School, Job, etc.
+<li> Added models of <b>self-assessed personality</b> from written language, while previous models only estimated 
+observed personality from spoken language (option -t).
+<li> Added <b>SVM models</b> as a default (support vector machine with linear kernel, i.e. SMOreg)
+</ul>
+
+
+<br><p>
+<a name=download></a><b><font face=Arial>Download source and binary files</font></b>
+
+<p>The Personality Recognizer is a Java application that can run on any platform. Instructions for
+running it are in the <a href=#install>installation</a> section.
+<p>
+By downloading the Personality Recognizer, you agree to use this program for non-commercial purpose
+only, i.e. solely for education or research. Please contact Francois Mairesse if you want to use it commercially. If
+you find it useful for your research, please cite (<a
+href=#ref>Mairesse et al., 2007</a>) appropriately.
+<p>
+
+<ul><li><b>Download the v1.03 Java sources, binaries, and documentation: 
+<!-- a -->
+<!-- href=http://ext.dcs.shef.ac.uk/~u0045/cgi-bin/download.cgi?file=personality/recognizer-1.0.2.tar.gz!--><a href=recognizer-1.0.3.tar.gz>recognizer-1.0.3.tar.gz</a></b> (24/06/2008)
+<br>Warning: if you're using Winzip, you should save the file on the hard drive before opening it.
+</ul> 
+
+
+
+<br><p>
+<a name=install></a><b><font face=Arial>Installation and usage instructions</font></b>
+<p>
+<ul>
+<li> Unpack the archive by keeping the directory structure (e.g. using <code>tar xvzf
+recognizer-1.0.2.tar.gz</code> or Winzip).<br><br>
+<li> Edit the <code>PersonalityRecognizer.properties</code> file in the root directory appropriately, by specifying the paths to 
+<ul><li>the <code>PersonalityRecognizer</code> installation directory
+<li>the <code>mrc2.dct</code> file from the MRC Psycholinguistic Database
+<li>the <code>LIWC.CAT</code> dictionary file from the Linguistic Inquiry and Word Count 2001
+tool</ul>
+You can specificy either Unix or Windows paths, the file <code>PersonalityRecognizer.properties.win</code> is an
+example configuration file for Windows.
+<br><br>
+<li> <b>If running under Unix:</b> <ul>
+<li>Make the <code>PersonalityRecognizer</code> and <code>compile</code> files executable
+<li>Modify the environment variables in the <code>PersonalityRecognizer</code> shell script in the root directory, including the paths to the Java installation directory and to the Weka jar file.
+<li>The program can then be launched using the <code>PersonalityRecognizer</code> command.
+</ul>
+
+<p><br>
+<li><b>If running under Windows:</b> 
+<ul>
+<li>Modify the environment variables in the <code>PersonalityRecognizer.bat</code> batch file in the root
+directory, including the paths to the Java installation directory and to the Weka jar file.
+<li>The program can then be launched using the <code>PersonalityRecognizer.bat</code> command.
+</ul>
+<p><br>
+
+<li> <b>The program takes the following options:</b>
+
+<pre>Usage: PersonalityRecognizer [-d] [-m model_number] [-o] [-c] [-t model_type] [-a output_arff_file] -i file|directory
+ 		-c,--counts		Also outputs feature counts, -d must be disabled
+
+ 		-d,--directory		Corpus analysis mode. Input must be a directory with 
+                         		multiple text files, features are standardized over 
+                         		the corpus and the recognizer outputs a personality 
+                         		estimate for each text file.
+
+  		-i,--input       	Input file or directory (required)
+
+ 		-m,--model       	Model to use for computing scores (default 4). Options:
+ 	              				1 = Linear Regression
+   	            				2 = M5' Model Tree
+              					3 = M5' Regression Tree
+              					4 = Support Vector Machine with Linear Kernel (SMOreg)
+
+  		-o,--outputmod   	Also outputs models
+
+  		-t,--type		Selects the type of model to use (default 1). The appropriate
+                        		model depends on the language sample (written or 
+  					spoken), and whether observed personality (as perceived 
+  					by external judges) or self-assessed personality (the 
+  					writer/speaker's perception) needs to be estimated from the 
+  					text. Options:
+  						1 = Observed personality from spoken language
+                                		2 = Self-assessed personality from written language
+                -a,--arff               In corpus analysis mode, outputs the features of each text into 
+                                        a Weka .arff dataset file, together with the predicted scores.
+                                        New models can be trained by adding features and replacing the scores
+                                        by human estimates. Each line corresponds to a text in the corpus 
+                                        indicated by the filename feature.
+</pre>
+<br>
+
+Given a text file or a directory, the program will output personality scores for the Big Five
+dimensions at the standard output. Feature counts and a textual representation of the models can be
+shown using the -c and -o options, respectively. In corpus analysis mode (option -d), the recognizer
+estimates the scores of each text in the specified directory, and uses standardized models
+to improve accuracy in the target application domain. By default, the recognizer estimates observed 
+personality using models trained on spoken language data, but the option '-t 2' switches to models
+of self-assessed personality from written language, i.e. estimating the writer's own perception of 
+him/herself.
+<p>
+For example, the following Unix command computes personality scores (self-report) for each text in 
+the <code>examples</code> directory, using standardized SVM models trained on written language: 
+<p>
+<code>PersonalityRecognizer -i examples -d -t 2 -m 4</code>
+<p>
+The output of this command can be found in the file <code>output.txt</code>.
+
+<p>
+<br>
+
+<a name=addFeat></a>
+<li><b>How to add new features to the models using my own corpus?</b> <p>
+While the models need to be retrained to include new features, 
+this can be done using the -a and -d options to write the LIWC and MRC feature values of your corpus to a Weka <code>arff</code> file, 
+(as well as the personality score estimates). New features can be included
+by adding new attributes in the <code>arff</code> file, and making sure that the feature values are standardized over the full corpus. 
+The model can then be trained on your corpus
+by replacing the personality scores (the last five attributes) by human judgements of each text sample. 
+The Weka Explorer or Experimenter can then be used for comparing various models. 
+
+<p>Creation of the <code>example.arff</code> dataset file based on the example corpus:
+<p>
+<code>PersonalityRecognizer -i examples -d -a examples.arff -t 1 -m 1</code>
+<p>
+
+
+</ul>
+
+
+<br><p>
+<a name=dir></a><b><font face=Arial>Directory structure</font></b>
+<p>
+
+The program files are organized as follows:
+
+<pre>
+.:                               Application root directory
+./PersonalityRecognizer		 Unix program launcher script (to be modified)
+./PersonalityRecognizer.bat	 Windows program launcher batch file (to be modified)
+./PersonalityRecognizer.properties	 	Configuration file (to be modified)
+./PersonalityRecognizer.properties.win 		Example configuration file for Windows
+./compile			 Unix shell script for recompiling sources (to be modified)
+./compile.bat			 Windows batch file for recompiling sources (to be modified)
+./readme.html			 This readme file
+./output.txt			 Sample output file (see above)
+
+./bin:
+./bin/recognizer:                Java binary files
+./src/recognizer/PersonalityRecognizer.class
+./src/recognizer/LIWCDictionary.class
+./src/recognizer/Utils.class
+
+./doc:				 Javadoc documentation
+
+./examples			 Example corpus (see above)
+
+./lib:				
+./lib/attributes-info.arff	 Template Weka ARFF file with all attributes
+./lib/commons-cli-1.0.jar	 Apache Jakarta Commons command line interface library
+./lib/jmrc.jar			 jMRC - MRC Psycholinguistic Database Java Interface library
+
+./lib/models:			 Model files
+./lib/models/obs:		 	 Models of observed personality trained on spoken language
+./lib/models/obs/LinearRegression:	 Linear Regression model files (one for each 5 personality traits)
+./lib/models/obs/M5P:		 M5' Model Tree model files, e.g.:
+./lib/models/obs/M5P/extra.model	 Extraversion model
+./lib/models/obs/M5P/ems.model	 Emotional stability model
+./lib/models/obs/M5P/agree.model	 Agreeableness model
+./lib/models/obs/M5P/consc.model	 Conscientiousness model
+./lib/models/obs/M5P/open.model	 Openness to experience model
+./lib/models/obs/M5P-R:		 M5' Regression Tree model files
+./lib/models/obs/SVM:		 SVM model files
+./lib/models/self:		 Models of self-assessed personality trained on written language
+
+./src:				
+./src/recognizer:		 		Java source files
+./src/recognizer/PersonalityRecognizer.java	main file
+./src/recognizer/LIWCDictionary.java 		LIWC dictionary interface
+./src/recognizer/Utils.java			static methods library
+</pre>
+
+
+The program architecture allows the user to easily include external Weka models by adding new directories under <code>lib/models</code>, and modify the model names array in the source code. A model file is required for each personality trait, with attributes matching those of the <code>lib/attributes-info.arff</code> file.
+
+<br>
+<p>Please contact Francois Mairesse if you have any question,
+and feel free to modify the source code as long as you give appropriate credit to the author and
+cite the paper at the bottom of the page. You
+can use the <code>compile</code> script to recompile the source files. The online <a href=doc/index.html>Javadoc documentation</a> contains detailed information about the structure of the program.
+
+<br>
+<br><p>
+<a name=ref></a><b><font face=Arial>Reference</font></b>
+
+<p><ul>
+<li>Francois Mairesse, Marilyn Walker, Matthias Mehl and Roger
+Moore. <a href=http://www.mairesse.co.uk/papers/personality-jair07.pdf>Using Linguistic Cues for the Automatic Recognition of
+Personality in Conversation and Text</a> <font size=-1></font>.
+<i>Journal of Artificial Intelligence Research (JAIR)</i>, 30, pages 457-500, 2007.
+</ul>
+<p><br>
+[ <a href="http://www.mairesse.co.uk">Back to homepage</a> ]
+<p><br>
+<hr>
+<font size=-2 color=grey><font size=-2 color=grey>Francois
+Mairesse</font>, 2007</font>
+</td></tr></table>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="commons-cli-1.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/commons-cli-1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jmrc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/weka.jar!/" />
+    </CLASSES>
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/lib/models" />
+      <root url="jar://$PROJECT_DIR$/lib/weka-src.jar!/" />
+    </SOURCES>
+  </library>
+</component>

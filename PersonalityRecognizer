@@ -1,0 +1,18 @@
+#! /bin/bash -
+
+# ENVIRONMENT VARIABLES
+ 
+JDK_PATH=../../apps/jdk1.5.0_05
+WEKA=../../apps/weka-3-4/weka.jar
+
+# ----------------------------------
+
+COMMONS_CLI=./lib/commons-cli-1.0.jar
+MRC=./lib/jmrc.jar
+
+LIBS=.:$WEKA:$COMMONS_CLI:$MRC:bin/
+
+$JDK_PATH/bin/java -Xmx512m -classpath $LIBS recognizer.PersonalityRecognizer $*
+
+
+

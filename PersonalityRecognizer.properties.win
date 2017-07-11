@@ -1,0 +1,15 @@
+##################################################
+# Configuration File of the Personality Recognizer
+##################################################
+
+# Example file only, edit PersonalityRecognizer.properties
+# Backslashes need to be escaped by another backslash
+
+# Root directory of the application
+appDir = h:\\projects\\PersonalityRecognizer
+
+# Path to the LIWC dictionary file (LIWC.CAT)
+liwcCatFile = h:\\apps\\LIWC2001 Windows\\LIWC.CAT
+
+# Path to the MRC Psycholinguistic Database file (mrc2.dct)
+mrcPath = h:\\apps\\mrc\\mrc2.dct

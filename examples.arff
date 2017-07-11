@@ -1,0 +1,98 @@
+@relation features_/home/pegah/Documents/thesis/PersonalityRecognizer/examples
+
+@attribute filename string
+@attribute AOA numeric
+@attribute BROWN-FREQ numeric
+@attribute CONC numeric
+@attribute FAM numeric
+@attribute IMAG numeric
+@attribute K-F-FREQ numeric
+@attribute K-F-NCATS numeric
+@attribute K-F-NSAMP numeric
+@attribute MEANC numeric
+@attribute MEANP numeric
+@attribute NLET numeric
+@attribute NPHON numeric
+@attribute NSYL numeric
+@attribute T-L-FREQ numeric
+@attribute WC numeric
+@attribute WPS numeric
+@attribute Qmarks numeric
+@attribute Unique numeric
+@attribute Dic numeric
+@attribute Sixltr numeric
+@attribute Abbreviations numeric
+@attribute Emoticons numeric
+@attribute Pronoun numeric
+@attribute I numeric
+@attribute We numeric
+@attribute Self numeric
+@attribute You numeric
+@attribute Other numeric
+@attribute Negate numeric
+@attribute Assent numeric
+@attribute Article numeric
+@attribute Preps numeric
+@attribute Number numeric
+@attribute Affect numeric
+@attribute Posemo numeric
+@attribute Posfeel numeric
+@attribute Optim numeric
+@attribute Negemo numeric
+@attribute Anx numeric
+@attribute Anger numeric
+@attribute Sad numeric
+@attribute Cogmech numeric
+@attribute Cause numeric
+@attribute Insight numeric
+@attribute Discrep numeric
+@attribute Inhib numeric
+@attribute Tentat numeric
+@attribute Certain numeric
+@attribute Senses numeric
+@attribute See numeric
+@attribute Hear numeric
+@attribute Feel numeric
+@attribute Social numeric
+@attribute Comm numeric
+@attribute Othref numeric
+@attribute Humans numeric
+@attribute Time numeric
+@attribute Past numeric
+@attribute Present numeric
+@attribute Future numeric
+@attribute Space numeric
+@attribute Up numeric
+@attribute Down numeric
+@attribute Incl numeric
+@attribute Excl numeric
+@attribute Motion numeric
+@attribute Achieve numeric
+@attribute Relig numeric
+@attribute Sexual numeric
+@attribute Swear numeric
+@attribute Nonfl numeric
+@attribute Fillers numeric
+@attribute Period numeric
+@attribute Comma numeric
+@attribute Colon numeric
+@attribute SemiC numeric
+@attribute QMark numeric
+@attribute Exclam numeric
+@attribute Dash numeric
+@attribute Quote numeric
+@attribute Apostro numeric
+@attribute Parenth numeric
+@attribute OtherP numeric
+@attribute AllPct numeric
+@attribute Extraversion numeric
+@attribute 'Emotional stability' numeric
+@attribute Agreeableness numeric
+@attribute Conscientiousness numeric
+@attribute 'Openness to experience' numeric
+
+@data
+{1 0.319278,2 ?,3 -1.392489,4 -1.469037,5 -1.314619,6 ?,7 ?,8 ?,9 -1.466538,10 -0.166068,11 1.279524,12 1.004219,13 1.282577,14 ?,15 0.068651,16 -0.550404,17 -0.5,18 0.122912,19 -0.609783,20 1.098076,21 -0.5,23 -1.032856,24 -1.195953,25 1.478682,26 -1.135875,27 0.702891,28 -0.290544,29 0.001758,31 1.261043,32 0.499698,33 -1.058189,34 0.746616,35 0.72957,36 0.270914,37 1.422418,38 -0.611665,39 -1.364985,40 0.547735,41 -1.350947,42 -0.332883,43 1.366845,44 -0.566068,45 0.353716,46 -0.810021,47 1.19632,48 -0.389158,49 -1.286653,50 0.579467,51 -1.374057,52 -0.84827,53 0.798657,54 -1.478582,55 0.268265,56 1.361396,57 -0.808404,58 -0.346018,59 -1.307734,60 0.932907,61 -0.103471,62 -0.755884,63 -0.332375,64 1.406218,65 1.114899,66 1.334265,67 -1.26377,68 1.153049,69 -0.810021,70 -0.739908,73 0.335318,74 1.354934,75 1.5,77 -0.5,78 0.718232,79 1.467178,81 -0.658151,82 -0.067217,83 0.997709,84 0.75288,85 4.203324,86 3.586424,87 4.525165,88 4.787841,89 5.089665}
+{0 /home/pegah/Documents/thesis/PersonalityRecognizer/examples/Rob.txt,1 1.275254,2 ?,3 0.989918,4 0.237757,5 0.990722,6 ?,7 ?,8 ?,9 0.687418,10 0.804782,11 -0.486599,12 -0.455525,13 -0.1844,14 ?,15 -0.343255,16 0.232947,17 -0.5,18 -0.103425,19 1.162716,20 -0.089179,21 -0.5,23 0.806914,24 1.186968,25 -0.611684,26 1.221388,27 -1.006158,28 -0.164942,29 1.358059,31 -0.594585,32 0.570899,33 -0.52546,34 -1.196195,35 -1.013969,36 1.258159,37 -0.834154,38 0.371551,39 1.00568,40 0.893973,41 -0.164246,42 -0.352851,43 -0.486322,44 -0.907125,45 -0.310933,46 1.243302,47 -0.787544,48 0.56968,49 1.141307,50 -0.726653,51 0.820154,52 1.417105,53 -0.195921,54 0.65779,55 -0.66626,56 -0.016737,57 0.296694,58 -1.260402,59 1.115649,60 -1.033518,61 1.385209,62 0.84151,63 0.084984,64 -0.488795,65 -0.222742,66 0.187905,67 0.093198,68 -0.836622,69 1.243302,70 -0.739908,73 -0.655455,74 -1.041993,75 -0.5,77 -0.5,78 1.002145,79 -0.636171,81 -0.709308,82 0.147092,83 -0.86058,84 -0.992102,85 3.278592,86 2.482433,87 2.592673,88 3.851996,89 3.410451}
+{0 /home/pegah/Documents/thesis/PersonalityRecognizer/examples/John.txt,1 -0.78113,2 ?,3 0.203036,4 0.498641,5 -0.182865,6 ?,7 ?,8 ?,9 0.580882,10 0.710393,11 -1.033516,12 -1.178092,13 -1.148254,14 ?,15 1.328889,16 -0.97978,17 1.5,18 -1.229171,19 -1.025929,20 -1.303617,21 -0.5,23 0.905616,24 0.288008,25 -0.255313,26 0.284614,27 -0.699133,28 1.40771,29 -1.019851,31 -0.979045,32 -1.497402,33 0.373403,34 -0.449978,35 -0.694207,36 -1.060009,37 -0.526389,38 1.228882,39 0.005189,40 -0.064523,41 0.752052,42 1.467494,43 0.063506,44 1.357701,45 1.157016,46 0.376739,47 -0.862052,48 -1.210022,49 -0.052586,50 -0.957271,51 0.655045,52 -0.049402,53 0.733551,54 0.261638,55 1.295567,56 -0.324286,57 -0.775536,58 0.829351,59 0.211608,60 0.777101,61 -0.993761,62 -0.969321,63 -1.070395,64 -0.032803,65 0.363061,66 -0.874939,67 1.180719,68 0.520196,69 0.376739,70 0.103456,73 1.257041,74 -0.277791,75 -0.5,77 1.5,78 -0.860188,79 -0.194836,81 1.434978,82 1.178803,83 0.723451,84 0.962313,85 4.549972,86 3.436969,87 3.579494,88 3.03519,89 3.115143}
+{0 /home/pegah/Documents/thesis/PersonalityRecognizer/examples/Matt.txt,1 -0.813403,2 ?,3 0.199535,4 0.732639,5 0.506762,6 ?,7 ?,8 ?,9 0.198239,10 -1.349107,11 0.240591,12 0.629397,13 0.050077,14 ?,15 -1.054285,16 1.297236,17 -0.5,18 1.209684,19 0.472997,20 0.29472,21 1.5,23 -0.679675,24 -0.279024,25 -0.611684,26 -0.370127,27 1.002399,28 -0.952224,29 -0.339966,31 0.312588,32 0.426805,33 1.210247,34 0.899557,35 0.978606,36 -0.469064,37 -0.061874,38 -0.988769,39 0.354115,40 -1.377184,41 0.763141,42 -0.781759,43 -0.944029,44 0.115492,45 -1.1998,46 -0.810021,47 0.453276,48 1.029499,49 0.197932,50 1.104457,51 -0.101142,52 -0.519433,53 -1.336288,54 0.559154,55 -0.897573,56 -1.020373,57 1.287245,58 0.777068,59 -0.019523,60 -0.67649,61 -0.287976,62 0.883695,63 1.317786,64 -0.884621,65 -1.255218,66 -0.647232,67 -0.010146,68 -0.836622,69 -0.810021,70 1.37636,73 -0.936904,74 -0.035151,75 -0.5,77 -0.5,78 -0.860188,79 -0.636171,81 -0.06752,82 -1.258678,83 -0.86058,84 -0.72309,85 2.671095,86 3.129562,87 3.88267,88 2.451692,89 3.37743}
